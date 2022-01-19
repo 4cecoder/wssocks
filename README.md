@@ -12,9 +12,13 @@ wssocks can proxy TCP and UDP(not implemented currently) connections via socks5.
 
 ## Features
 - **Transfer data through firewalls**  
-In some network environment, due to the restricts of firewalls, only http(s)/websocket is allowed. wssocks is mainly useful for passing through firewalls. We can access the inner netwrok (such as ssh) behind the firewalls via socks protocol wrapped in websockets.  
+ Due to the firewall restrictions in certain network environments only secure http(s)/websockets are allowed.
+ wssocks is mainly useful for passing through firewalls. 
+ We can access the inner network (such as ssh) behind the firewalls via socks protocol wrapped in websockets.  
+ 
 - **High performance**  
 wssocks only create one TCP connection (websocket) per client to handle multiple socks5 connections, which achieves much higher performance.
+
 - **Easy to use**  
 No configures, no dependences, just a single executable including client and server.
 
@@ -70,7 +74,8 @@ wssocks server --addr :1088 --auth
 ```
 Then it will generate a random connection key.
 You can also specific a customized connection key via flag `--auth_key`.  
-At client side, connect to wssocks server via the connection key:
+
+On the client side, connect to wssocks server via the connection key:
 ```bash
 wssocks client --remote ws://example.com:1088 --key YOUR_CONNECTION_KEY
 ```
